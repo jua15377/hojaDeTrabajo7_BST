@@ -6,7 +6,7 @@ import java.util.Map;
 public class Association<K,V>
 */
 /**
- * A class implementing a key-value pair.  This class associates an
+ * A class implementing a key-value pair.  This class associates an 
  * immutable key with a mutable value.  Used in many other structures.
  * <P>
  * Example Usage:
@@ -35,7 +35,7 @@ public class Association<K,V>
  * @author, 2001 duane a. bailey
  */
 
-public class Association<K,V> implements Map.Entry<K,V>
+public class Association<K extends Comparable<K>,V> implements Map.Entry<K,V>
 {
     /**
      * The immutable key.  An arbitrary object.
@@ -61,7 +61,7 @@ public class Association<K,V> implements Map.Entry<K,V>
      */
     public Association(K key, V value)
     {
-
+        assert (key != null);
         theKey = key;
         theValue = value;
     }
@@ -91,19 +91,18 @@ public class Association<K,V> implements Map.Entry<K,V>
         Association otherAssoc = (Association)other;
         return getKey().equals(otherAssoc.getKey());
     }
-
+    
     /**
      * Standard hashcode function.
      *
      * @post return hash code association with this association
      * @return A hash code for association.
-     * @see Hashtable
      */
     public int hashCode()
     {
         return getKey().hashCode();
     }
-
+    
     /**
      * Fetch value from association.  May return null.
      *
@@ -148,10 +147,17 @@ public class Association<K,V> implements Map.Entry<K,V>
     public String toString()
     {
         StringBuffer s = new StringBuffer();
-        s.append("<Association: "+getKey()+"="+getValue()+">");
+        s.append(" - "+getKey()+": "+getValue()+"\n");
         return s.toString();
     }
-    /*
-...
-*/
+
+    /**
+     * Compara la llave de la asociacion con la llave de otra asociacion
+     * @param key es la llave de la asociacion
+     * @return devuelve mayor a cero si es mas grande, 0 si son iguales, y menor a cero si es menor
+     */
+    public int compareTo(K key){
+        return this.theKey.compareTo(key);
+    }
+
 }
