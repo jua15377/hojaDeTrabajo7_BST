@@ -19,7 +19,7 @@ public class BinaryTree<K extends Comparable<K>, V> {
         while(current != null){
             int comparation = current.data.compareTo(key);  // Comparar la palabra con la llave de la asociacion en el nodo
             if(comparation == 0){
-                return current.data.theValue;
+                return current.data.getValue();
             }else if(comparation > 0){
                 current = current.left;
             }else{
