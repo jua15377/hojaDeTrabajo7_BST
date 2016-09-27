@@ -2,9 +2,7 @@
 // (c) 1998,2001 duane a. bailey
 import java.util.Map;
 
-/*
-public class Association<K,V>
-*/
+
 /**
  * A class implementing a key-value pair.  This class associates an 
  * immutable key with a mutable value.  Used in many other structures.
@@ -18,7 +16,7 @@ public class Association<K,V>
  * public static void main(String[] argv){
  *      //store the number of classes taken by the student in an array of associations
  *      {@link Association} [] classesTaken = new Association[5];
- *      classesTaken[0] = new {@link #Association(Object,Object) Association("Andrea", new Integer(5))};
+ *      classesTaken[0] = new {Association("Andrea", new Integer(5))};
  *      classesTaken[1] = new Association("Barbara", new Integer(1));
  *      classesTaken[2] = new Association("Bill", new Integer(3));
  *      classesTaken[3] = new Association("Duane", new Integer(2));
@@ -32,7 +30,7 @@ public class Association<K,V>
  * }
  * </pre>
  * @version $Id: Association.java 34 2007-08-09 14:43:44Z bailey $
- * @author, 2001 duane a. bailey
+ * @author 2001 duane a. bailey
  */
 
 public class Association<K extends Comparable<K>,V> implements Map.Entry<K,V>
